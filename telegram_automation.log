@@ -1,0 +1,51 @@
+2025-10-13 21:57:39,811 - enhanced_telegram_automation - INFO - Created default configuration file: telegram_config.ini
+2025-10-13 21:57:39,812 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-13 21:57:39,812 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-13 21:57:40,387 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:40,389 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:40,390 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:40,391 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:40,392 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:40,395 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 21:57:58,313 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-10-13 21:57:59,593 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-10-13 21:58:04,750 - telethon.client.users - INFO - Phone migrated to 4
+2025-10-13 21:58:04,751 - telethon.client.telegrambaseclient - INFO - Reconnecting to new data center 4
+2025-10-13 21:58:04,812 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-10-13 21:58:04,813 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-10-13 21:58:04,814 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 21:58:06,167 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 21:58:33,389 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 21:58:33,438 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 21:59:01,282 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 21:59:01,282 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 21:59:36,869 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 21:59:36,907 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 21:59:37,093 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 21:59:37,093 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:00:46,531 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-13 22:00:46,531 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-13 22:00:47,087 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:00:47,088 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:00:47,090 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:00:47,091 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:00:47,092 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:00:47,093 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:01:00,141 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:01:00,177 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:01:30,125 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:01:30,126 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:01:37,925 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:01:37,971 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:02:06,912 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:02:06,912 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:02:13,339 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:02:13,383 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:02:13,716 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:02:13,717 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:04:22,375 - enhanced_telegram_automation - INFO - Active profile set to Aggressive: delays={'scrape': (8, 16), 'invite': (20, 40), 'message': (6, 14)}, scrape_batch=300
+2025-10-13 22:04:22,505 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:04:22,551 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:04:22,996 - enhanced_telegram_automation - INFO - Successfully connected client: session1
+2025-10-13 22:04:23,069 - enhanced_telegram_automation - INFO - Starting enhanced scraping from: Nordic Shop • Hele DK 🇩🇰
+2025-10-13 22:04:47,538 - enhanced_telegram_automation - INFO - Scraping completed: 478 members

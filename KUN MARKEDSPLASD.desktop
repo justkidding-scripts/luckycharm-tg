@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SMS MARKETPLACE
+Comment=Launch SMS Marketplace
+Icon=applications-internet
+Exec=bash -c 'cd /home/nike/teletool-sms-manager-COMPREHENSIVE-RESTORED && ./launch_comprehensive.sh'
+Terminal=true
+Categories=Network;
