@@ -1,0 +1,75 @@
+# LuckyCharm TG - Enhanced Telegram Automation Suite
+# Complete dependency list for build and runtime
+
+# Core GUI Framework
+tkinter>=8.6.0  # Usually included with Python
+Pillow>=9.0.0   # For image handling in QR codes and UI
+
+# Telegram API
+telethon>=1.24.0
+cryptg>=0.4.0  # Fast crypto operations for Telethon
+python-socks[asyncio]>=2.0.0  # SOCKS proxy support
+
+# Database Support
+aiosqlite>=0.17.0  # Async SQLite operations
+psycopg2-binary>=2.9.0  # PostgreSQL support (optional)
+
+# Async Operations
+asyncio-throttle>=1.0.0
+aiofiles>=0.8.0
+asyncpg>=0.27.0
+
+# Network & HTTP
+aiohttp>=3.8.0
+requests>=2.28.0
+httpx>=0.23.0
+
+# Web Scraping (Selenium Engine)
+selenium>=4.8.0
+webdriver-manager>=3.8.0
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+
+# Data Processing & Export
+pandas>=1.5.0
+openpyxl>=3.0.0
+csv-python>=1.0.0
+
+# Proxy & Network Tools
+python-socks>=2.0.0
+pysocks>=1.7.0
+urllib3>=1.26.0
+
+# Anti-Detection & User Agents
+fake-useragent>=1.1.0
+undetected-chromedriver>=3.4.0
+
+# Configuration & Logging
+configparser>=5.3.0
+python-dotenv>=0.20.0
+loguru>=0.6.0
+
+# QR Code Generation & Display
+qrcode[pil]>=7.3.0
+Pillow>=9.0.0
+
+# Optional: Advanced Features
+matplotlib>=3.6.0  # For analytics charts (optional)
+numpy>=1.24.0     # For data analysis (optional)
+scipy>=1.9.0      # For advanced statistics (optional)
+
+# Development & Testing (optional)
+pytest>=7.2.0
+pytest-asyncio>=0.20.0
+black>=22.0.0
+flake8>=5.0.0
+
+# System Dependencies (install via package manager)
+# sudo apt-get install python3-tk python3-dev build-essential
+# sudo apt-get install chromium-browser chromium-chromedriver  # For Selenium
+# sudo apt-get install sqlite3 libsqlite3-dev  # For SQLite
+# sudo apt-get install postgresql-client libpq-dev  # For PostgreSQL (optional)
+
+# Rust Dependencies (for native scraper)
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# cargo build --release  # In telegram-scraper-native directory

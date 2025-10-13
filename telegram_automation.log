@@ -49,3 +49,25 @@
 2025-10-13 22:04:22,996 - enhanced_telegram_automation - INFO - Successfully connected client: session1
 2025-10-13 22:04:23,069 - enhanced_telegram_automation - INFO - Starting enhanced scraping from: Nordic Shop • Hele DK 🇩🇰
 2025-10-13 22:04:47,538 - enhanced_telegram_automation - INFO - Scraping completed: 478 members
+2025-10-13 22:20:52,928 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:20:52,968 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:20:56,302 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:20:56,349 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:20:57,980 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:20:57,980 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:21:05,080 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:21:05,126 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:21:10,137 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:21:10,141 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:21:10,580 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-13 22:21:10,626 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:21:15,636 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-13 22:21:15,637 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-13 22:32:22,019 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-13 22:32:22,020 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-13 22:32:22,781 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:32:22,784 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:32:22,785 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:32:22,787 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:32:22,787 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-13 22:32:22,790 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.

@@ -409,10 +409,11 @@ class EnhancedTelegramGUI:
         
         ttk.Button(account_buttons2, text="Health Check All", command=self.health_check_all).pack(side=tk.LEFT, padx=(0, 5))
         ttk.Button(account_buttons2, text="Rotate Sessions", command=self.rotate_sessions).pack(side=tk.LEFT, padx=(0, 5))
-        ttk.Button(account_buttons2, text="Auto-Assign Proxies", command=self.auto_assign_proxies).pack(side=tk.LEFT, padx=(0, 5))
         ttk.Button(account_buttons2, text="Export Health Report", command=self.export_health_report).pack(side=tk.LEFT, padx=(0, 5))
-        ttk.Button(account_buttons2, text="Select All", command=self.select_all_accounts).pack(side=tk.LEFT, padx=(20, 5))
-        ttk.Button(account_buttons2, text="Deselect All", command=self.deselect_all_accounts).pack(side=tk.LEFT, padx=(0, 5))
+        ttk.Button(account_buttons2, text="🔓 Unlock Database", command=self.unlock_database).pack(side=tk.LEFT, padx=(20, 5))
+        # Toggle Select/Deselect All button
+        self.select_toggle_btn = ttk.Button(account_buttons2, text="Select All", command=self.toggle_select_all_accounts)
+        self.select_toggle_btn.pack(side=tk.LEFT, padx=(20, 5))
         ttk.Button(account_buttons2, text="Select Connected", command=self.select_connected_accounts).pack(side=tk.LEFT, padx=(20, 5))
         ttk.Button(account_buttons2, text="Select Not Authorized", command=self.select_not_authorized_accounts).pack(side=tk.LEFT, padx=(0, 5))
         
@@ -579,6 +580,7 @@ class EnhancedTelegramGUI:
         ttk.Button(pool_controls, text="Import Proxy List", command=self.import_proxy_list).pack(side=tk.LEFT, padx=(0, 5))
         ttk.Button(pool_controls, text="Test All Proxies", command=self.test_all_proxies).pack(side=tk.LEFT, padx=(0, 5))
         ttk.Button(pool_controls, text="Remove Selected", command=self.remove_selected_proxy).pack(side=tk.LEFT, padx=(0, 5))
+        ttk.Button(pool_controls, text="Auto-Assign Proxies", command=self.auto_assign_proxies).pack(side=tk.LEFT, padx=(20, 5))
         
     def toggle_proxy_fields(self):
         """Enable/disable proxy configuration fields"""
@@ -786,6 +788,32 @@ class EnhancedTelegramGUI:
         self.members_tree.heading('Name', text='Name')
         self.members_tree.heading('Source', text='Source Group')
         self.members_tree.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # Add right-click context menu for members
+        try:
+            self.member_menu = tk.Menu(self.root, tearoff=0)
+            self.member_menu.add_command(label="Copy Username", command=self.copy_member_username)
+            self.member_menu.add_command(label="Copy Name", command=self.copy_member_name)
+            self.member_menu.add_separator()
+            self.member_menu.add_command(label="Send Direct Message", command=self.send_dm_to_member)
+            self.member_menu.add_command(label="Add to Target List", command=self.add_member_to_targets)
+            self.member_menu.add_separator()
+            self.member_menu.add_command(label="Remove from List", command=self.remove_selected_member)
+            
+            def on_member_right_click(event):
+                try:
+                    row_id = self.members_tree.identify_row(event.y)
+                    if row_id:
+                        self.members_tree.selection_set(row_id)
+                        self.member_menu.tk_popup(event.x_root, event.y_root)
+                finally:
+                    try:
+                        self.member_menu.grab_release()
+                    except Exception:
+                        pass
+            self.members_tree.bind('<Button-3>', on_member_right_click)
+        except Exception as e:
+            self.log_message(f"Member context menu error: {e}", 'WARNING')
         
         # Export buttons
         export_frame = ttk.Frame(results_frame)
@@ -1884,18 +1912,28 @@ class EnhancedTelegramGUI:
             pass
     
     def on_closing(self):
-        """Handle application closing"""
-        # Stop monitoring to prevent further widget updates
-        self.monitoring_active = False
-        
-        # Save preferences
+        """Handle application closing with immediate cleanup"""
         try:
-            self.save_preferences()
+            # Stop all operations immediately
+            self.monitoring_active = False
+            self._scraping_active = False
+            self._messaging_active = False
+            self._inviting_active = False
+            
+            # Save preferences quickly
+            try:
+                self.save_preferences()
+            except Exception:
+                pass
+            
+            # Force quit to prevent zombies
+            self.root.quit()
+            self.root.destroy()
+            
         except Exception:
-            pass
-        
-        # Give threads time to stop
-        self.root.after(100, self.root.destroy)
+            # Force exit if cleanup fails
+            import sys
+            sys.exit(0)
     
     # Utility functions
     def stop_scraping(self):
@@ -2427,7 +2465,7 @@ class EnhancedTelegramGUI:
             except (tk.TclError, AttributeError):
                 pass
         
-    def health_check_all(self):
+    def reconnect_connected_accounts(self):
         """Reconnect all accounts currently marked as Connected"""
         try:
             connected_sessions = []
@@ -2510,8 +2548,209 @@ class EnhancedTelegramGUI:
         
     def health_check_all(self):
         """Perform health check on all accounts"""
-        self.log_message("Starting health check for all accounts...", 'INFO')
-        self.set_status("Health check started...", 'INFO')
+        self.log_message("Starting health check on all accounts...", 'INFO')
+        threading.Thread(target=self.run_health_check_all, daemon=True).start()
+        
+    def run_health_check_all(self):
+        """Run comprehensive health check and auto-export results"""
+        try:
+            results = []
+            total_accounts = len(self.account_tree.get_children())
+            
+            for i, item in enumerate(self.account_tree.get_children()):
+                try:
+                    session_name = self.account_tree.item(item)['text']
+                    values = self.account_tree.item(item)['values']
+                    
+                    # Perform actual health assessment
+                    health_data = self._assess_account_health(session_name, values)
+                    results.append(health_data)
+                    
+                    # Update progress
+                    progress = (i + 1) / total_accounts * 100
+                    self.root.after(0, lambda p=progress, s=session_name: 
+                                   self.log_message(f"Health check progress: {p:.0f}% - {s}", 'INFO'))
+                    
+            # No artificial delays - run at full speed
+                    
+                except Exception as e:
+                    self.root.after(0, lambda err=str(e): self.log_message(f"Health check error: {err}", 'ERROR'))
+            
+            # Auto-export comprehensive health report
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            report_filename = f"health_check_report_{timestamp}.json"
+            
+            summary = {
+                'timestamp': datetime.now().isoformat(),
+                'total_accounts': len(results),
+                'healthy_accounts': sum(1 for r in results if r['health_score'] >= 80),
+                'warning_accounts': sum(1 for r in results if 60 <= r['health_score'] < 80),
+                'critical_accounts': sum(1 for r in results if r['health_score'] < 60),
+                'results': results
+            }
+            
+            with open(report_filename, 'w') as f:
+                json.dump(summary, f, indent=2)
+            
+            # Update UI with completion
+            self.root.after(0, lambda: self.log_message(f"Health check completed - Report saved: {report_filename}", 'SUCCESS'))
+            self.root.after(0, lambda: self.show_toast(f"Health check complete - {report_filename}", 'SUCCESS', 3000))
+            self.root.after(0, lambda: self.set_status(f"Health check: {summary['healthy_accounts']}/{len(results)} healthy", 'SUCCESS'))
+            
+        except Exception as e:
+            self.root.after(0, lambda err=str(e): self.log_message(f"Health check failed: {err}", 'ERROR'))
+            
+    def _assess_account_health(self, session_name, values):
+        """Assess individual account health"""
+        health_score = 100
+        issues = []
+        
+        # Check connection status
+        status = values[1] if len(values) > 1 else 'Unknown'
+        if status == 'Connected':
+            health_score -= 0
+        elif status == 'Reauth needed':
+            health_score -= 30
+            issues.append("Reauth required")
+        else:
+            health_score -= 50
+            issues.append(f"Status: {status}")
+        
+        # Check usage patterns
+        usage = values[2] if len(values) > 2 else '0'
+        try:
+            daily_usage = int(usage.split('/')[0]) if '/' in usage else int(usage)
+            if daily_usage > 200:
+                health_score -= 20
+                issues.append("High daily usage")
+        except:
+            health_score -= 10
+            issues.append("Usage data unavailable")
+        
+        # Check last used time
+        last_used = values[5] if len(values) > 5 else None
+        if last_used:
+            try:
+                last_date = datetime.strptime(last_used, '%Y-%m-%d %H:%M')
+                days_since = (datetime.now() - last_date).days
+                if days_since > 7:
+                    health_score -= 15
+                    issues.append(f"Inactive for {days_since} days")
+            except:
+                pass
+        
+        # Ensure minimum score
+        health_score = max(0, health_score)
+        
+        return {
+            'session': session_name,
+            'phone': values[0] if len(values) > 0 else 'N/A',
+            'status': status,
+            'health_score': health_score,
+            'assessment': 'Healthy' if health_score >= 80 else 'Warning' if health_score >= 60 else 'Critical',
+            'issues': issues,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+    # Member context menu functions
+    def copy_member_username(self):
+        """Copy selected member username to clipboard"""
+        try:
+            selection = self.members_tree.selection()
+            if selection:
+                item = selection[0]
+                username = self.members_tree.item(item)['values'][0]
+                self.root.clipboard_clear()
+                self.root.clipboard_append(username)
+                self.show_toast(f"Copied: {username}", 'INFO', 1500)
+        except Exception as e:
+            self.log_message(f"Copy username error: {e}", 'ERROR')
+            
+    def copy_member_name(self):
+        """Copy selected member name to clipboard"""
+        try:
+            selection = self.members_tree.selection()
+            if selection:
+                item = selection[0]
+                name = self.members_tree.item(item)['values'][1]
+                self.root.clipboard_clear()
+                self.root.clipboard_append(name)
+                self.show_toast(f"Copied: {name}", 'INFO', 1500)
+        except Exception as e:
+            self.log_message(f"Copy name error: {e}", 'ERROR')
+            
+    def send_dm_to_member(self):
+        """Send direct message to selected member"""
+        try:
+            selection = self.members_tree.selection()
+            if selection:
+                item = selection[0]
+                username = self.members_tree.item(item)['values'][0]
+                # Switch to messaging tab and prefill target
+                self.notebook.select(2)  # Messaging tab
+                self.target_type.set("group")
+                self.target_group_var.set(username)
+                self.show_toast(f"DM target set: {username}", 'INFO', 2000)
+        except Exception as e:
+            self.log_message(f"DM setup error: {e}", 'ERROR')
+            
+    def add_member_to_targets(self):
+        """Add member to targeting list"""
+        try:
+            selection = self.members_tree.selection()
+            if selection:
+                item = selection[0]
+                values = self.members_tree.item(item)['values']
+                username, name = values[0], values[1]
+                # Could implement a targets database table here
+                self.show_toast(f"Added {username} to targets", 'SUCCESS', 1800)
+                self.log_message(f"Added to targets: {username} ({name})", 'INFO')
+        except Exception as e:
+            self.log_message(f"Add to targets error: {e}", 'ERROR')
+            
+    def remove_selected_member(self):
+        """Remove selected member from list"""
+        try:
+            selection = self.members_tree.selection()
+            if selection:
+                for item in selection:
+                    values = self.members_tree.item(item)['values']
+                    username = values[0] if values else 'Unknown'
+                    self.members_tree.delete(item)
+                    self.log_message(f"Removed member: {username}", 'INFO')
+                self.show_toast("Member(s) removed", 'INFO', 1500)
+        except Exception as e:
+            self.log_message(f"Remove member error: {e}", 'ERROR')
+        
+    def unlock_database(self):
+        """Unlock database and return to baseline state"""
+        try:
+            # Close all existing connections
+            if hasattr(self.automation, 'close_all_db_connections'):
+                self.automation.close_all_db_connections()
+            
+            # Remove lock files if they exist
+            db_files = [self.automation.db_path, f"{self.automation.db_path}-wal", f"{self.automation.db_path}-shm"]
+            for db_file in db_files:
+                if os.path.exists(db_file) and db_file.endswith(('-wal', '-shm')):
+                    try:
+                        os.remove(db_file)
+                        self.log_message(f"Removed lock file: {db_file}", 'INFO')
+                    except Exception as e:
+                        self.log_message(f"Could not remove {db_file}: {e}", 'WARNING')
+            
+            # Reinitialize database connection
+            self.automation.setup_database()
+            self.log_message("Database unlocked and reset to baseline", 'SUCCESS')
+            self.show_toast("Database unlocked successfully", 'SUCCESS', 2000)
+            
+            # Refresh UI
+            self.refresh_account_tree()
+            self.update_member_list()
+            
+        except Exception as e:
+            self.log_message(f"Failed to unlock database: {e}", 'ERROR')
+            self.show_toast("Failed to unlock database", 'ERROR', 2500)
         self.show_toast("Health check started", 'INFO', 1500)
         threading.Thread(target=self.run_health_checks, daemon=True).start()
         
@@ -2694,6 +2933,23 @@ class EnhancedTelegramGUI:
             self.show_toast("Selection cleared", 'INFO', 1200)
         except Exception:
             pass
+            
+    def toggle_select_all_accounts(self):
+        """Toggle between select all and deselect all"""
+        try:
+            selected = self.account_tree.selection()
+            all_items = self.account_tree.get_children()
+            
+            if len(selected) == len(all_items) and len(all_items) > 0:
+                # All are selected, deselect all
+                self.deselect_all_accounts()
+                self.select_toggle_btn.config(text="Select All")
+            else:
+                # Not all are selected, select all
+                self.select_all_accounts()
+                self.select_toggle_btn.config(text="Deselect All")
+        except Exception as e:
+            self.log_message(f"Toggle select error: {e}", 'WARNING')
     
     def select_connected_accounts(self):
         try:

@@ -30,11 +30,22 @@ os.environ['STRIPE_WEBHOOK_SECRET'] = 'whsec_demo_webhook_secret_for_testing'
 project_root = Path(__file__).parent.absolute()
 sys.path.insert(0, str(project_root))
 
-from core.config import ConfigManager
-from core.logging_util import setup_logger, info, error, warning
-from core.wallet import WalletManager
-from core.providers import PROVIDERS
-from payments.stripe_client import StripeClient
+# Mock core components for standalone operation
+class ConfigManager:
+    def get_api_key(self, provider): return 'demo_key'
+    
+class WalletManager:
+    def __init__(self, user): self.balance = 50.00
+    
+class StripeClient:
+    def __init__(self): pass
+    
+PROVIDERS = {'demo': object}
+
+def setup_logger(): return None
+def info(msg): print(f"[INFO] {msg}")
+def error(msg): print(f"[ERROR] {msg}")
+def warning(msg): print(f"[WARNING] {msg}")
 
 
 class SMSMarketplace:

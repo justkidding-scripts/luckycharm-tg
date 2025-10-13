@@ -179,7 +179,10 @@ class EnhancedTelegramAutomation:
         
     def setup_database(self):
         """Initialize SQLite database for state management"""
-        conn = sqlite3.connect(self.db_path)
+        # Use connection with timeout and WAL mode for better concurrency
+        conn = sqlite3.connect(self.db_path, timeout=30, check_same_thread=False)
+        conn.execute("PRAGMA journal_mode=WAL")  # Enable WAL mode for better concurrency
+        conn.execute("PRAGMA busy_timeout=30000")  # 30 second timeout
         cursor = conn.cursor()
         
         # Operations state table
