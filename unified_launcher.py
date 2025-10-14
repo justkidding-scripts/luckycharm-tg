@@ -34,8 +34,8 @@ class UnifiedToolLauncher:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Unified Telegram & SMS Automation Suite")
-        self.root.geometry("1400x900")
-        self.root.configure(bg='#1e1e1e')
+        self.root.geometry("1600x700")  # Wider but less tall
+        self.root.configure(bg='#606060')
         
         # Tool instances
         self.telegram_process = None
@@ -84,29 +84,29 @@ class UnifiedToolLauncher:
         style = ttk.Style()
         style.theme_use('clam')
         
-        # Configure colors for unified dark theme
-        style.configure('TLabel', background='#1e1e1e', foreground='#ffffff')
-        style.configure('TFrame', background='#1e1e1e')
-        style.configure('TButton', background='#404040', foreground='#ffffff', borderwidth=1)
-        style.map('TButton', background=[('active', '#505050'), ('pressed', '#606060')])
-        style.configure('TEntry', fieldbackground='#404040', foreground='#ffffff', insertcolor='#ffffff')
-        style.configure('TNotebook', background='#1e1e1e', tabposition='n')
-        style.configure('TNotebook.Tab', background='#404040', foreground='#ffffff', padding=[15, 8])
-        style.map('TNotebook.Tab', background=[('selected', '#505050'), ('active', '#454545')])
-        style.configure('TLabelFrame', background='#1e1e1e', foreground='#ffffff')
-        style.configure('TLabelFrame.Label', background='#1e1e1e', foreground='#ffffff')
-        style.configure('Treeview', background='#404040', foreground='#ffffff', fieldbackground='#404040')
-        style.configure('Treeview.Heading', background='#505050', foreground='#ffffff')
+        # Configure colors for professional dark theme (matching suite)
+        style.configure('TLabel', background='#606060', foreground='#E0E0E0')
+        style.configure('TFrame', background='#606060')
+        style.configure('TButton', background='#808080', foreground='white', borderwidth=1)
+        style.map('TButton', background=[('active', '#2980b9'), ('pressed', '#2980b9')])
+        style.configure('TEntry', fieldbackground='#505050', foreground='#E0E0E0', insertcolor='#E0E0E0')
+        style.configure('TNotebook', background='#606060', tabposition='n')
+        style.configure('TNotebook.Tab', background='#505050', foreground='#E0E0E0', padding=[15, 8])
+        style.map('TNotebook.Tab', background=[('selected', '#808080'), ('active', '#2980b9')])
+        style.configure('TLabelFrame', background='#606060', foreground='#E0E0E0')
+        style.configure('TLabelFrame.Label', background='#606060', foreground='#E0E0E0')
+        style.configure('Treeview', background='#505050', foreground='#E0E0E0', fieldbackground='#505050')
+        style.configure('Treeview.Heading', background='#808080', foreground='white')
         
         # Custom styles
-        style.configure('Title.TLabel', font=('Consolas', 20, 'bold'), background='#1e1e1e', foreground='#00ff88')
-        style.configure('Subtitle.TLabel', font=('Consolas', 12), background='#1e1e1e', foreground='#cccccc')
-        style.configure('Status.TLabel', font=('Consolas', 10), background='#1e1e1e')
-        style.configure('Success.TLabel', foreground='#00ff88')
-        style.configure('Warning.TLabel', foreground='#ffaa00')
-        style.configure('Error.TLabel', foreground='#ff4444')
-        style.configure('Launch.TButton', font=('Consolas', 12, 'bold'), background='#00aa44')
-        style.configure('Stop.TButton', font=('Consolas', 12, 'bold'), background='#aa4400')
+        style.configure('Title.TLabel', font=('Segoe UI', 20, 'bold'), background='#606060', foreground='#808080')
+        style.configure('Subtitle.TLabel', font=('Segoe UI', 12), background='#606060', foreground='#E0E0E0')
+        style.configure('Status.TLabel', font=('Segoe UI', 10), background='#606060')
+        style.configure('Success.TLabel', foreground='#808080')
+        style.configure('Warning.TLabel', foreground='#A0A0A0')
+        style.configure('Error.TLabel', foreground='#707070')
+        style.configure('Launch.TButton', font=('Segoe UI', 12, 'bold'), background='#808080')
+        style.configure('Stop.TButton', font=('Segoe UI', 12, 'bold'), background='#707070')
     
     def setup_integration_handlers(self):
         """Setup event handlers for cross-tool integration"""

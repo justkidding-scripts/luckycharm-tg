@@ -58,8 +58,8 @@ class EnhancedTelegramGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Enhanced Telegram Automation Suite v2.0")
-        self.root.geometry("1200x800")
-        self.root.configure(bg='#2b2b2b')
+        self.root.geometry("1500x650")  # Wider but less tall
+        self.root.configure(bg='#606060')  # Medium gray
         
         # Style configuration
         self.setup_styles()
@@ -107,24 +107,24 @@ class EnhancedTelegramGUI:
         style = ttk.Style()
         style.theme_use('clam')
         
-        # Configure colors for dark theme
-        style.configure('TLabel', background='#2b2b2b', foreground='#ffffff')
-        style.configure('TFrame', background='#2b2b2b')
-        style.configure('TButton', background='#404040', foreground='#ffffff', borderwidth=1)
-        style.map('TButton', background=[('active', '#505050'), ('pressed', '#606060')])
-        style.configure('TEntry', fieldbackground='#404040', foreground='#ffffff', insertcolor='#ffffff')
-        style.configure('TText', background='#404040', foreground='#ffffff', insertcolor='#ffffff')
-        style.configure('TNotebook', background='#2b2b2b', tabposition='n')
-        style.configure('TNotebook.Tab', background='#404040', foreground='#ffffff', padding=[10, 4])
-        style.map('TNotebook.Tab', background=[('selected', '#505050'), ('active', '#454545')])
-        style.configure('TLabelFrame', background='#2b2b2b', foreground='#ffffff')
-        style.configure('TLabelFrame.Label', background='#2b2b2b', foreground='#ffffff')
-        style.configure('TCheckbutton', background='#2b2b2b', foreground='#ffffff')
-        style.configure('TScale', background='#2b2b2b')
-        style.configure('TSpinbox', fieldbackground='#404040', foreground='#ffffff')
-        style.configure('Treeview', background='#404040', foreground='#ffffff', fieldbackground='#404040')
-        style.configure('Treeview.Heading', background='#505050', foreground='#ffffff')
-        style.configure('TProgressbar', background='#00ff00', troughcolor='#404040')
+        # Sophisticated 5-shade gray theme
+        style.configure('TLabel', background='#606060', foreground='#E0E0E0')  # Medium gray bg, light gray text
+        style.configure('TFrame', background='#606060')  # Medium gray
+        style.configure('TButton', background='#808080', foreground='#E0E0E0', borderwidth=1)  # Light gray button
+        style.map('TButton', background=[('active', '#909090'), ('pressed', '#707070')])  # Gray hover states
+        style.configure('TEntry', fieldbackground='#505050', foreground='#E0E0E0', insertcolor='#E0E0E0')  # Dark gray field
+        style.configure('TText', background='#505050', foreground='#E0E0E0', insertcolor='#E0E0E0')  # Dark gray field
+        style.configure('TNotebook', background='#606060', tabposition='n')  # Medium gray
+        style.configure('TNotebook.Tab', background='#505050', foreground='#E0E0E0', padding=[10, 4])  # Dark gray tabs
+        style.map('TNotebook.Tab', background=[('selected', '#808080'), ('active', '#707070')])  # Gray tab states
+        style.configure('TLabelFrame', background='#606060', foreground='#E0E0E0')  # Medium gray
+        style.configure('TLabelFrame.Label', background='#606060', foreground='#E0E0E0')  # Medium gray
+        style.configure('TCheckbutton', background='#606060', foreground='#E0E0E0')  # Medium gray
+        style.configure('TScale', background='#606060')  # Medium gray
+        style.configure('TSpinbox', fieldbackground='#505050', foreground='#E0E0E0')  # Dark gray field
+        style.configure('Treeview', background='#505050', foreground='#E0E0E0', fieldbackground='#505050')  # Dark gray
+        style.configure('Treeview.Heading', background='#808080', foreground='#E0E0E0')  # Light gray header
+        style.configure('TProgressbar', background='#808080', troughcolor='#505050')  # Gray progress bar
         
         # Enable text selection in all Text and Entry widgets globally
         self.root.option_add('*Text.selectBackground', '#0078d7')
@@ -162,9 +162,9 @@ class EnhancedTelegramGUI:
         # Create monitoring panel
         self.create_monitoring_panel(right_panel)
         
-        # Bottom status bar
+        # Bottom status bar - reduce padding for shorter window
         status_bar = ttk.Frame(main_container)
-        status_bar.pack(fill=tk.X, side=tk.BOTTOM, pady=(10, 0))
+        status_bar.pack(fill=tk.X, side=tk.BOTTOM, pady=(5, 0))
         ttk.Label(status_bar, text="Status:").pack(side=tk.LEFT, padx=(0, 6))
         
         # Make status text selectable using Entry widget
@@ -232,7 +232,7 @@ class EnhancedTelegramGUI:
             self.log_message(f"Menubar init error: {e}", 'ERROR')
         
     def create_toolbar(self, parent):
-        """Create the top toolbar"""
+        """Create the top toolbar with window controls"""
         toolbar = ttk.Frame(parent)
         toolbar.pack(fill=tk.X, pady=(0, 10))
         
@@ -240,21 +240,33 @@ class EnhancedTelegramGUI:
         status_frame = ttk.Frame(toolbar)
         status_frame.pack(side=tk.LEFT)
         
-        ttk.Label(status_frame, text="Status:", font=('Arial', 10, 'bold')).pack(side=tk.LEFT, padx=(0, 5))
+        ttk.Label(status_frame, text="Status:", font=('Arial', 10, 'bold'), foreground='#E0E0E0').pack(side=tk.LEFT, padx=(0, 5))
         
-        self.connection_status = ttk.Label(status_frame, text="Disconnected", foreground='red')
+        self.connection_status = ttk.Label(status_frame, text="Disconnected", foreground='#FF6B6B')
         self.connection_status.pack(side=tk.LEFT, padx=(0, 15))
         
-        self.active_operations = ttk.Label(status_frame, text="Operations: 0")
+        self.active_operations = ttk.Label(status_frame, text="Operations: 0", foreground='#E0E0E0')
         self.active_operations.pack(side=tk.LEFT, padx=(0, 15))
         
         # Accounts count indicator (Total/Connected/NotAuth)
-        self.accounts_count_label = ttk.Label(status_frame, text="Accounts: 0/0/0")
+        self.accounts_count_label = ttk.Label(status_frame, text="Accounts: 0/0/0", foreground='#E0E0E0')
         self.accounts_count_label.pack(side=tk.LEFT, padx=(0, 15))
+        
+        # Window control buttons (rightmost)
+        window_controls = ttk.Frame(toolbar)
+        window_controls.pack(side=tk.RIGHT, padx=(10, 0))
+        
+        # Minimize button
+        ttk.Button(window_controls, text="🗕", command=self.minimize_window, width=3).pack(side=tk.RIGHT, padx=(2, 0))
+        
+        # Maximize/Restore button  
+        self.maximize_btn = ttk.Button(window_controls, text="🗖", command=self.toggle_maximize, width=3)
+        self.maximize_btn.pack(side=tk.RIGHT, padx=(2, 0))
+        self.is_maximized = False
         
         # Control buttons
         control_frame = ttk.Frame(toolbar)
-        control_frame.pack(side=tk.RIGHT)
+        control_frame.pack(side=tk.RIGHT, padx=(0, 10))
         
         # Right-side quick actions (front)
         ttk.Button(control_frame, text="Open Telegram Web", command=self.open_telegram_web).pack(side=tk.RIGHT, padx=(5, 0))
@@ -268,11 +280,47 @@ class EnhancedTelegramGUI:
         
         # Initialize toggle label based on prefs
         self.update_toasts_toggle_button_text()
+    
+    def minimize_window(self):
+        """Minimize the window"""
+        try:
+            self.root.iconify()
+        except Exception as e:
+            self.log_message(f"Error minimizing window: {e}", 'WARNING')
+    
+    def toggle_maximize(self):
+        """Toggle between maximized and normal window state"""
+        try:
+            if self.is_maximized:
+                # Restore to normal size
+                self.root.state('normal')
+                self.root.geometry("1500x650")
+                self.maximize_btn.configure(text="🗖")
+                self.is_maximized = False
+            else:
+                # Maximize window
+                self.root.state('zoomed')  # For Linux/Windows
+                self.maximize_btn.configure(text="🗗")
+                self.is_maximized = True
+        except Exception as e:
+            self.log_message(f"Error toggling window state: {e}", 'WARNING')
+            # Fallback for different systems
+            try:
+                if self.is_maximized:
+                    self.root.attributes('-zoomed', False)
+                    self.maximize_btn.configure(text="🗖")
+                    self.is_maximized = False
+                else:
+                    self.root.attributes('-zoomed', True)
+                    self.maximize_btn.configure(text="🗗")
+                    self.is_maximized = True
+            except Exception:
+                self.log_message("Window maximize/restore not supported on this system", 'INFO')
         
     def create_control_notebook(self, parent):
         """Create the main control notebook"""
         self.notebook = ttk.Notebook(parent)
-        self.notebook.pack(fill=tk.BOTH, expand=True)
+        self.notebook.pack(fill=tk.BOTH, expand=True, pady=(5, 5))  # Reduce vertical padding
         
         # Track last selected tab
         try:
@@ -318,9 +366,23 @@ class EnhancedTelegramGUI:
             pass
         
     def create_config_tab(self, parent):
-        """Create configuration tab"""
+        """Create configuration tab with scrollable content"""
+        # Create scrollable frame
+        canvas = tk.Canvas(parent, bg='#606060')
+        scrollbar = ttk.Scrollbar(parent, orient="vertical", command=canvas.yview)
+        scrollable_frame = ttk.Frame(canvas)
+        
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        
+        # Bind mousewheel to canvas
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        
         # Account management section
-        accounts_frame = ttk.LabelFrame(parent, text="Account Management")
+        accounts_frame = ttk.LabelFrame(scrollable_frame, text="Account Management")
         accounts_frame.pack(fill=tk.X, padx=10, pady=10)
         
         # Account list with enhanced columns
@@ -421,7 +483,7 @@ class EnhancedTelegramGUI:
         ttk.Button(account_buttons2, text="Select Not Authorized", command=self.select_not_authorized_accounts).pack(side=tk.LEFT, padx=(0, 5))
         
         # Settings section
-        settings_frame = ttk.LabelFrame(parent, text="Global Settings")
+        settings_frame = ttk.LabelFrame(scrollable_frame, text="Global Settings")
         settings_frame.pack(fill=tk.X, padx=10, pady=10)
         
         # Delay settings
@@ -456,7 +518,7 @@ class EnhancedTelegramGUI:
         ttk.Combobox(profile_frame, textvariable=self.scrape_strategy_var, values=["standard","expanded"], state='readonly', width=12).pack(side=tk.LEFT, padx=(6, 0))
         
         # Notifications & Alerts
-        notify_frame = ttk.LabelFrame(parent, text="Notifications & Alerts")
+        notify_frame = ttk.LabelFrame(scrollable_frame, text="Notifications & Alerts")
         notify_frame.pack(fill=tk.X, padx=10, pady=10)
         
         self.toasts_enabled_var = tk.BooleanVar(value=self.enable_toasts)
@@ -468,7 +530,7 @@ class EnhancedTelegramGUI:
         ttk.Checkbutton(notify_frame, text="Stack toasts", variable=self.toast_stack_var, command=self.apply_notification_settings).grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
         
         # Anti-Detection Settings
-        antidetect_frame = ttk.LabelFrame(parent, text="Anti-Detection Settings")
+        antidetect_frame = ttk.LabelFrame(scrollable_frame, text="Anti-Detection Settings")
         antidetect_frame.pack(fill=tk.X, padx=10, pady=10)
         
         # Randomization settings
@@ -510,6 +572,10 @@ class EnhancedTelegramGUI:
         ttk.Checkbutton(random_frame, variable=self.auto_rotation).grid(row=3, column=1, sticky=tk.W)
         
         random_frame.columnconfigure(1, weight=1)
+        
+        # Pack canvas and scrollbar
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
         
     def create_proxy_tab(self, parent):
         """Create proxy configuration tab"""

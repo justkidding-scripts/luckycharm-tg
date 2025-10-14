@@ -544,7 +544,7 @@ class SettingsWindow:
         
         self.window = tk.Toplevel(self.parent)
         self.window.title("⚙️ Premium Settings")
-        self.window.geometry("900x700")
+        self.window.geometry("1000x600")  # Wider but shorter
         self.window.configure(bg=self.style_manager.colors['bg_dark'])
         
         # Apply premium styling
@@ -670,9 +670,18 @@ class SettingsWindow:
         main_content = tk.Frame(frame, bg=self.style_manager.colors['bg_dark'])
         main_content.pack(expand=True, fill=tk.BOTH, padx=20, pady=20)
         
+        # Create scrollable frame for anti-detection settings
+        canvas = tk.Canvas(main_content, bg=self.style_manager.colors['bg_dark'])
+        scrollbar = ttk.Scrollbar(main_content, orient="vertical", command=canvas.yview)
+        scrollable_frame = tk.Frame(canvas, bg=self.style_manager.colors['bg_dark'])
+        
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        
         # Anti-Detection Settings
         detection_card, detection_content = self.style_manager.create_premium_card(
-            main_content, "🛡️ Anti-Detection Configuration", 800, 400
+            scrollable_frame, "🛡️ Anti-Detection Configuration", 800, 350
         )
         detection_card.pack(fill=tk.X, pady=10)
         
@@ -739,6 +748,40 @@ class SettingsWindow:
                                    bg=self.style_manager.colors['bg_input'],
                                    fg=self.style_manager.colors['text_primary'])
         delay_max_spin.pack(side=tk.LEFT, padx=(5, 0))
+        
+        # Session rotation settings
+        self.session_rotation_var = tk.BooleanVar(value=self.settings.get('anti_detection', 'session_rotation'))
+        tk.Checkbutton(detection_content,
+                      text="Enable Session Rotation",
+                      variable=self.session_rotation_var,
+                      bg=self.style_manager.colors['bg_card'],
+                      fg=self.style_manager.colors['text_primary'],
+                      selectcolor=self.style_manager.colors['bg_input'],
+                      font=self.style_manager.fonts['body']).pack(anchor=tk.W, pady=5)
+        
+        # Stealth mode
+        self.stealth_mode_var = tk.BooleanVar(value=self.settings.get('anti_detection', 'stealth_mode'))
+        tk.Checkbutton(detection_content,
+                      text="Enable Stealth Mode",
+                      variable=self.stealth_mode_var,
+                      bg=self.style_manager.colors['bg_card'],
+                      fg=self.style_manager.colors['text_primary'],
+                      selectcolor=self.style_manager.colors['bg_input'],
+                      font=self.style_manager.fonts['body']).pack(anchor=tk.W, pady=5)
+        
+        # Human behavior simulation
+        self.human_behavior_var = tk.BooleanVar(value=self.settings.get('anti_detection', 'simulate_human_behavior'))
+        tk.Checkbutton(detection_content,
+                      text="Simulate Human Behavior",
+                      variable=self.human_behavior_var,
+                      bg=self.style_manager.colors['bg_card'],
+                      fg=self.style_manager.colors['text_primary'],
+                      selectcolor=self.style_manager.colors['bg_input'],
+                      font=self.style_manager.fonts['body']).pack(anchor=tk.W, pady=5)
+        
+        # Pack canvas and scrollbar
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
     
     def create_health_check_tab(self, notebook):
         """Create health check settings tab"""
@@ -1004,6 +1047,9 @@ class SettingsWindow:
         self.settings.set('anti_detection', 'random_delays', self.random_delays_var.get())
         self.settings.set('anti_detection', 'delay_min', self.delay_min_var.get())
         self.settings.set('anti_detection', 'delay_max', self.delay_max_var.get())
+        self.settings.set('anti_detection', 'session_rotation', self.session_rotation_var.get())
+        self.settings.set('anti_detection', 'stealth_mode', self.stealth_mode_var.get())
+        self.settings.set('anti_detection', 'simulate_human_behavior', self.human_behavior_var.get())
         
         # Health check settings
         self.settings.set('health_check', 'enabled', self.health_enabled_var.get())
