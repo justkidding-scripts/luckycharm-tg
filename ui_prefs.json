@@ -1,0 +1,16 @@
+{
+  "enable_toasts": true,
+  "enable_toast_sound": false,
+  "stack_toasts": true,
+  "window_geometry": "1200x800+201+180",
+  "last_tab_index": 0,
+  "account_column_widths": {
+    "#0": 200,
+    "Phone": 200,
+    "Status": 200,
+    "Usage": 200,
+    "Health": 200,
+    "Proxy": 200,
+    "Last_Used": 200
+  }
+}

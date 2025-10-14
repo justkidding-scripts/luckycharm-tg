@@ -71,3 +71,163 @@
 2025-10-13 22:32:22,787 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
 2025-10-13 22:32:22,787 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
 2025-10-13 22:32:22,790 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:35,038 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:36:35,038 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:36:50,116 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:36:50,116 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:36:50,357 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:50,358 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:50,359 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:50,359 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:50,360 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:36:50,361 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:38:18,371 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:38:18,405 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:38:18,601 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:38:18,602 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:38:21,340 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:38:21,374 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:38:21,602 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:38:21,602 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:41:08,427 - enhanced_telegram_automation - INFO - Active profile set to Aggressive: delays={'scrape': (8, 16), 'invite': (20, 40), 'message': (6, 14)}, scrape_batch=300
+2025-10-14 00:41:08,468 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:41:08,504 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:41:08,766 - enhanced_telegram_automation - INFO - Successfully connected client: session1
+2025-10-14 00:41:08,878 - enhanced_telegram_automation - INFO - Joined private group via invite link for scraping
+2025-10-14 00:41:08,878 - enhanced_telegram_automation - INFO - Starting enhanced scraping from: Love Yourself
+2025-10-14 00:41:08,936 - enhanced_telegram_automation - INFO - Scraping completed: 0 members
+2025-10-14 00:41:52,013 - enhanced_telegram_automation - INFO - Active profile set to Aggressive: delays={'scrape': (8, 16), 'invite': (20, 40), 'message': (6, 14)}, scrape_batch=300
+2025-10-14 00:41:52,039 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:41:52,070 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:41:57,078 - enhanced_telegram_automation - ERROR - Failed to connect client session1: OperationalError('database is locked')
+Traceback (most recent call last):
+  File "/home/nike/Desktop/TELEGRAM MAIN/enhanced_telegram_automation.py", line 421, in get_client
+    await client.connect()
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/client/telegrambaseclient.py", line 563, in connect
+    self.session.auth_key = self._sender.auth_key
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/sessions/sqlite.py", line 180, in auth_key
+    self._update_session_table()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/sessions/sqlite.py", line 194, in _update_session_table
+    c.execute('delete from sessions')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+2025-10-14 00:41:57,082 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:41:57,082 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:41:57,099 - enhanced_telegram_automation - ERROR - Scraping failed: Exception('No available clients for scraping')
+Traceback (most recent call last):
+  File "/home/nike/Desktop/TELEGRAM MAIN/enhanced_telegram_automation.py", line 546, in enhanced_scrape_members
+    raise Exception("No available clients for scraping")
+Exception: No available clients for scraping
+2025-10-14 00:42:20,418 - enhanced_telegram_automation - INFO - Active profile set to Aggressive: delays={'scrape': (8, 16), 'invite': (20, 40), 'message': (6, 14)}, scrape_batch=300
+2025-10-14 00:42:20,461 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:42:20,495 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:42:20,748 - enhanced_telegram_automation - INFO - Successfully connected client: session1
+2025-10-14 00:42:20,792 - enhanced_telegram_automation - INFO - Starting enhanced scraping from: Love Yourself
+2025-10-14 00:42:20,837 - enhanced_telegram_automation - INFO - Scraping completed: 0 members
+2025-10-14 00:42:46,020 - enhanced_telegram_automation - INFO - Active profile set to Aggressive: delays={'scrape': (8, 16), 'invite': (20, 40), 'message': (6, 14)}, scrape_batch=300
+2025-10-14 00:42:46,063 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:42:46,088 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:42:51,096 - enhanced_telegram_automation - ERROR - Failed to connect client session1: OperationalError('database is locked')
+Traceback (most recent call last):
+  File "/home/nike/Desktop/TELEGRAM MAIN/enhanced_telegram_automation.py", line 421, in get_client
+    await client.connect()
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/client/telegrambaseclient.py", line 563, in connect
+    self.session.auth_key = self._sender.auth_key
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/sessions/sqlite.py", line 180, in auth_key
+    self._update_session_table()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/sessions/sqlite.py", line 194, in _update_session_table
+    c.execute('delete from sessions')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+2025-10-14 00:42:51,099 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:42:51,099 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:42:56,115 - enhanced_telegram_automation - ERROR - Scraping failed: Exception('No available clients for scraping')
+Traceback (most recent call last):
+  File "/home/nike/Desktop/TELEGRAM MAIN/enhanced_telegram_automation.py", line 546, in enhanced_scrape_members
+    raise Exception("No available clients for scraping")
+Exception: No available clients for scraping
+2025-10-14 00:43:11,643 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:43:11,678 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:43:16,687 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:43:16,688 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:43:58,727 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:43:58,763 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:44:02,288 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.92:443/TcpFull...
+2025-10-14 00:44:02,324 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:44:03,771 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.92:443/TcpFull...
+2025-10-14 00:44:03,772 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.92:443/TcpFull complete!
+2025-10-14 00:44:09,418 - telethon.network.connection.connection - ERROR - Unexpected exception in the send loop
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/asyncio/queues.py", line 186, in get
+    await getter
+GeneratorExit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/network/connection/connection.py", line 322, in _send_loop
+    self._send(await self._send_queue.get())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/queues.py", line 188, in get
+    getter.cancel()  # Just in case getter is not done yet.
+    ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 833, in call_soon
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 556, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-10-14 00:44:09,423 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-59' coro=<Connection._send_loop() running at /home/nike/.local/lib/python3.13/site-packages/telethon/network/connection/connection.py:332> wait_for=<Future cancelled>>
+2025-10-14 00:44:09,424 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-60' coro=<Connection._recv_loop() done, defined at /home/nike/.local/lib/python3.13/site-packages/telethon/network/connection/connection.py:334> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-10-14 00:44:09,424 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-61' coro=<MTProtoSender._send_loop() done, defined at /home/nike/.local/lib/python3.13/site-packages/telethon/network/mtprotosender.py:446> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-10-14 00:44:09,424 - telethon.network.mtprotosender - ERROR - Unhandled error while receiving data
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/asyncio/queues.py", line 186, in get
+    await getter
+GeneratorExit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/network/mtprotosender.py", line 507, in _recv_loop
+    body = await self._connection.recv()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nike/.local/lib/python3.13/site-packages/telethon/network/connection/connection.py", line 308, in recv
+    result, err = await self._recv_queue.get()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/queues.py", line 188, in get
+    getter.cancel()  # Just in case getter is not done yet.
+    ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 833, in call_soon
+    self._check_closed()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 556, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-10-14 00:44:09,427 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-62' coro=<MTProtoSender._recv_loop() done, defined at /home/nike/.local/lib/python3.13/site-packages/telethon/network/mtprotosender.py:497> wait_for=<Future cancelled>>
+2025-10-14 00:45:37,001 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:45:37,002 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:45:37,321 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:45:37,322 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:45:37,323 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:45:37,324 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:45:37,325 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 00:45:37,326 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:09:59,907 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 01:09:59,908 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 01:10:00,222 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:10:00,224 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:10:00,227 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:10:00,228 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:10:00,229 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:10:00,230 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-10-14 01:38:57,994 - __main__ - INFO - Loaded 1 accounts from configuration
+2025-10-14 01:38:57,995 - __main__ - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}

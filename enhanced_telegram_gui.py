@@ -173,8 +173,9 @@ class EnhancedTelegramGUI:
                                         foreground='#cccccc', width=50)
         self.ui_status_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
         
-        # Export errors button
+        # Export errors button + Unlock DB
         ttk.Button(status_bar, text="Export Errors", command=self.export_errors).pack(side=tk.RIGHT)
+        ttk.Button(status_bar, text="🔓 Unlock DB", command=self.unlock_database).pack(side=tk.RIGHT, padx=(0, 8))
         
         # Keyboard shortcuts
         self.root.bind('<Control-l>', lambda e: self.clear_log())
@@ -214,6 +215,8 @@ class EnhancedTelegramGUI:
             # Tools menu
             tools_menu = tk.Menu(menubar, tearoff=0)
             tools_menu.add_command(label="Open Telegram Web", command=self.open_telegram_web)
+            tools_menu.add_separator()
+            tools_menu.add_command(label="🔓 Unlock Database", command=self.unlock_database)
             menubar.add_cascade(label="Tools", menu=tools_menu)
             
             # Help menu
@@ -841,9 +844,8 @@ class EnhancedTelegramGUI:
             font=('Consolas', 10)
         )
         self.message_template.pack(fill=tk.X, padx=5, pady=5)
-        # Add better template text
-        template_text = "Hello {first_name},\n\nThis is an automated message.\n\nBest regards!"
-        self.message_template.insert('1.0', template_text)
+        # Start with empty template by default per request
+        self.message_template.delete('1.0', tk.END)
         
         # Target selection
         target_frame = ttk.LabelFrame(parent, text="Target Selection")

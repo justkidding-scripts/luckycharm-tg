@@ -1,0 +1,66 @@
+2025-10-13 23:55:33,333 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-13 23:55:33,393 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-13 23:55:33,393 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-13 23:55:33,422 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-13 23:55:33,422 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-13 23:55:33,449 - PremiumSuite - ERROR - 💥 Fatal error: 'bg_info'
+2025-10-13 23:55:50,926 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-13 23:55:50,979 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-13 23:55:50,979 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-13 23:55:50,980 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-13 23:55:50,981 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:24:31,008 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:24:31,063 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:24:31,063 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:24:31,064 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:24:31,064 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:24:42,124 - PremiumSuite - WARNING - ❌ Authentication failed
+2025-10-14 00:24:53,162 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:24:53,208 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:24:53,208 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:24:53,208 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:24:53,208 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:29:31,600 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:29:31,646 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:29:31,647 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:29:31,647 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:29:31,648 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:29:37,257 - PremiumSuite - INFO - ✅ User authenticated: admin
+2025-10-14 00:29:37,328 - PremiumSuite - INFO - 🚀 Premium Telegram Suite started successfully!
+2025-10-14 00:32:44,491 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:32:44,536 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:32:44,537 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:32:44,537 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:32:44,538 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:32:54,091 - PremiumSuite - INFO - ✅ User authenticated: admin
+2025-10-14 00:32:54,120 - PremiumSuite - ERROR - 💥 Fatal error: 'primary_red'
+2025-10-14 00:34:39,242 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:34:39,286 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:34:39,286 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:34:39,287 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:34:39,288 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:34:44,963 - PremiumSuite - INFO - ✅ User authenticated: admin
+2025-10-14 00:34:45,045 - PremiumSuite - INFO - 🚀 Premium Telegram Suite started successfully!
+2025-10-14 00:36:59,157 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:36:59,202 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:36:59,202 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:36:59,203 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:36:59,203 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:37:04,636 - PremiumSuite - INFO - ✅ User authenticated: admin
+2025-10-14 00:37:04,716 - PremiumSuite - INFO - 🚀 Premium Telegram Suite started successfully!
+2025-10-14 00:37:40,943 - PremiumSuite - INFO - 👋 Premium Suite shutting down...
+2025-10-14 00:37:40,943 - premium_auto_scraper - INFO - Premium Batch Scheduler stopped
+2025-10-14 00:39:50,699 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:39:50,760 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:39:50,761 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:39:50,762 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:39:50,762 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:45:46,680 - PremiumSuite - INFO - 🔧 Initializing Premium Components...
+2025-10-14 00:45:46,738 - enhanced_telegram_automation - INFO - Loaded 1 accounts from configuration
+2025-10-14 00:45:46,739 - enhanced_telegram_automation - INFO - Smart delays: True, Operation delays: {'scrape': (0.1, 0.1), 'invite': (0.1, 0.1), 'message': (0.1, 0.1)}
+2025-10-14 00:45:46,740 - PremiumSuite - INFO - ✅ Telegram automation initialized
+2025-10-14 00:45:46,741 - PremiumSuite - INFO - ✅ All premium components initialized!
+2025-10-14 00:45:52,919 - PremiumSuite - INFO - ✅ User authenticated: admin
+2025-10-14 00:45:53,011 - PremiumSuite - INFO - 🚀 Premium Telegram Suite started successfully!
+2025-10-14 00:47:45,797 - PremiumSuite - INFO - 👋 Premium Suite shutting down...
+2025-10-14 00:47:45,797 - premium_auto_scraper - INFO - Premium Batch Scheduler stopped

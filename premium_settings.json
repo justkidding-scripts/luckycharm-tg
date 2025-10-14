@@ -1,0 +1,78 @@
+{
+    "proxy": {
+        "enabled": false,
+        "type": "socks5",
+        "host": "127.0.0.1",
+        "port": 9050,
+        "username": "",
+        "password": "",
+        "chain_enabled": false,
+        "active_chain": "Tor Only",
+        "rotation_interval": 300
+    },
+    "anti_detection": {
+        "enabled": true,
+        "user_agent_rotation": true,
+        "random_delays": true,
+        "delay_min": 1.0,
+        "delay_max": 3.0,
+        "request_spacing": 0.5,
+        "session_rotation": true,
+        "rotation_after_requests": 100,
+        "stealth_mode": true,
+        "simulate_human_behavior": true
+    },
+    "health_check": {
+        "enabled": true,
+        "interval": 60,
+        "check_connectivity": true,
+        "check_proxy_health": true,
+        "check_session_validity": true,
+        "auto_recover": true,
+        "max_retry_attempts": 3,
+        "health_threshold": 0.8
+    },
+    "session_management": {
+        "auto_rotate": true,
+        "rotation_strategy": "round_robin",
+        "max_concurrent_sessions": 5,
+        "session_timeout": 1800,
+        "preserve_sessions": true,
+        "session_backup_enabled": true
+    },
+    "debugging": {
+        "enabled": false,
+        "log_level": "INFO",
+        "log_to_file": true,
+        "log_file": "telegram_debug.log",
+        "max_log_size": 10,
+        "log_rotation": true,
+        "capture_network_traffic": false,
+        "verbose_errors": true
+    },
+    "performance": {
+        "max_threads": 10,
+        "batch_size": 50,
+        "queue_size": 1000,
+        "memory_limit": 512,
+        "cpu_limit": 80,
+        "io_timeout": 30,
+        "connection_pooling": true
+    },
+    "security": {
+        "encryption_enabled": true,
+        "secure_storage": true,
+        "auto_logout_time": 3600,
+        "require_password_on_start": true,
+        "audit_logging": true,
+        "data_anonymization": true
+    },
+    "ui": {
+        "theme": "dark",
+        "notification_style": "premium",
+        "auto_refresh_interval": 5,
+        "show_tooltips": true,
+        "advanced_mode": false,
+        "remember_window_position": true
+    }
+}
